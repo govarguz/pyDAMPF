@@ -60,10 +60,15 @@ import matplotlib.pyplot as plt
 
 import mypyDAMPF
 #==========Define programs constants================
-pi=mypyDAMPF.mypmmoda.pi
-kb=mypyDAMPF.mypmmoda.kb
-mu0=mypyDAMPF.mypmmoda.mu0
-nmax=mypyDAMPF.mypmmoda.nmax
+pi=3.141592654
+kb=1.380658e-23
+mu0=4*pi*1.e-7
+nmax=10
+
+# pi=mypyDAMPF.mypmmoda.pi
+# kb=mypyDAMPF.mypmmoda.kb
+# mu0=mypyDAMPF.mypmmoda.mu0
+# nmax=mypyDAMPF.mypmmoda.nmax
 #==========Initial problem conditions===============
 x=0
 t=0

@@ -45,6 +45,7 @@ MODULE mypmmoda
   REAL*8, PARAMETER :: kb=1.380658e-23
   REAL*8, PARAMETER :: mu0=4*pi*1.e-7
   INTEGER, PARAMETER :: nmax=10 !diff
+  INTEGER, PARAMETER :: ndin=12800
   REAL*8,DIMENSION(nmax) :: dydx,y,yout
   REAL*8 :: xminimo,xmaximo,dminimo,vminimo,intermax,amplitud,zcmin,dzc,zcmax,interzc,factor
   REAL*8 :: saltot,omega,omega0,periodo,kc,A0,F0,Q,rad,fase1,amp1,defl,virial1,pts1,ets1,fmedia,radSam
@@ -62,11 +63,12 @@ MODULE mypmmoda
   !#####
   CONTAINS
   !#####
-  SUBROUTINE mainbim(ndin)
+  SUBROUTINE mainbim()
   IMPLICIT NONE
-  INTEGER :: ndin,j,l,i,jj
+  INTEGER :: j,l,i,jj
   REAL*8,DIMENSION(ndin) :: tarray,xarray,varray,xaux,dtarray,ftarray
   REAL*8,DIMENSION(ndin) :: vdwtarray,Hertztarray,viscotarray,captarray,ljtarray,dlvotarray !wm
+  PRINT *, ndin
   !------------------------------Using an existing subroutine--------------------------------
   CALL input
   !---------------------------------Using a new subroutine-----------------------------------
@@ -166,7 +168,9 @@ MODULE mypmmoda
   CALL interaction(dminimo,vminimo,intermax)
   ets1=pts1*periodo														   		
   ! Transformada de Fourier.
-  call ampphase(xarray,tarray,omega,ndin,fase1,amp1)
+  amp1=0.
+  fase1=0.
+  ! call ampphase(xarray,tarray,omega,ndin,fase1,amp1)
 
       !Escribir al fichero
   WRITE(1,1000) zc*1.e9,amp1*1.e9,fase1,dminimo*1.e9,dmaximo*1.e9,intermax*1.e9,-ets1*1.e20&
@@ -181,7 +185,7 @@ MODULE mypmmoda
   !changed tolerance
   IF (abs(l-nzcfix).LE.0.1) THEN
   DO jj=(nper-nperfin)*npp+1,ndin
-  !PRINT*,'This condition is working'
+  ! PRINT*,'This condition is working'
   WRITE(2,2000) tarray(jj)/periodo,xarray(jj)*1.e9,varray(jj),zc*1.e9,ftarray(jj)*1.e9&
   &,dtarray(jj)*1.e9,vdwtarray(jj)*1.e9,Hertztarray(jj)*1.e9,viscotarray(jj)*1.e9&
   &,captarray(jj)*1.e9,ljtarray(jj)*1.e9,dlvotarray(jj)*1.e9
@@ -358,22 +362,22 @@ MODULE mypmmoda
   inter=vdw+Hertz+visco+cap+lj+mag+dlvo
   END SUBROUTINE		  
   !##### 
-  SUBROUTINE ampphase(xarray,tarray,omega,ndin,fase,amp)
-  IMPLICIT NONE
-  INTENT(IN) :: xarray,tarray,omega,ndin
-  INTENT(OUT) :: fase,amp
-  REAL*8 :: fase,amp,omega
-  COMPLEX(8) fourier
-  COMPLEX(8),PARAMETER:: i=(0.,1.)
-  REAL*8 :: xarray(ndin),tarray(ndin)
-  INTEGER :: ndin,j
-  fourier=0.
-  do j=(nper-nperfin)*npp+1,ndin
-  fourier=fourier+xarray(j)*cdexp(-i*omega*tarray(j))  
-  end do
-  amp=2.*cdabs(fourier)/(nperfin*npp)
-  fase=DACOS(dreal(fourier)/cdabs(fourier))*(180/pi)
-  END SUBROUTINE
+  ! SUBROUTINE ampphase(xarray,tarray,omega,ndin,fase,amp)
+  ! IMPLICIT NONE
+  ! INTENT(IN) :: xarray,tarray,omega,ndin
+  ! INTENT(OUT) :: fase,amp
+  ! REAL*8 :: fase,amp,omega
+  ! COMPLEX(8) fourier
+  ! COMPLEX(8),PARAMETER:: i=(0.,1.)
+  ! REAL*8 :: xarray(ndin),tarray(ndin)
+  ! INTEGER :: ndin,j
+  ! fourier=0.
+  ! do j=(nper-nperfin)*npp+1,ndin
+  ! fourier=fourier+xarray(j)*cdexp(-i*omega*tarray(j))  
+  ! end do
+  ! amp=2.*cdabs(fourier)/(nperfin*npp)
+  ! fase=DACOS(dreal(fourier)/cdabs(fourier))*(180/pi)
+  ! END SUBROUTINE
   !##### 	
   SUBROUTINE input
   IMPLICIT NONE
