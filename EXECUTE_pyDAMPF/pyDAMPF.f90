@@ -45,7 +45,6 @@ MODULE mypmmoda
   REAL*8, PARAMETER :: kb=1.380658e-23
   REAL*8, PARAMETER :: mu0=4*pi*1.e-7
   INTEGER, PARAMETER :: nmax=10 !diff
-  INTEGER, PARAMETER :: ndin=12800
   REAL*8,DIMENSION(nmax) :: dydx,y,yout
   REAL*8 :: xminimo,xmaximo,dminimo,vminimo,intermax,amplitud,zcmin,dzc,zcmax,interzc,factor
   REAL*8 :: saltot,omega,omega0,periodo,kc,A0,F0,Q,rad,fase1,amp1,defl,virial1,pts1,ets1,fmedia,radSam
@@ -63,12 +62,11 @@ MODULE mypmmoda
   !#####
   CONTAINS
   !#####
-  SUBROUTINE mainbim()
-  IMPLICIT NONE
+  SUBROUTINE mainbim(ndin)
+  INTEGER, value, INTENT (IN) :: ndin
   INTEGER :: j,l,i,jj
   REAL*8,DIMENSION(ndin) :: tarray,xarray,varray,xaux,dtarray,ftarray
   REAL*8,DIMENSION(ndin) :: vdwtarray,Hertztarray,viscotarray,captarray,ljtarray,dlvotarray !wm
-  PRINT *, ndin
   !------------------------------Using an existing subroutine--------------------------------
   CALL input
   !---------------------------------Using a new subroutine-----------------------------------
