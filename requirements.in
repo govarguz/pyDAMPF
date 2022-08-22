@@ -9,3 +9,4 @@ re
 tempfile
 IPython.display
 HTML
+motivus==2.0.0
