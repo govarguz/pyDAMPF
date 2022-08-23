@@ -19,3 +19,5 @@ motivus==2.0.0
 ipywidgets==7.7.2
 tabloo==0.0.15
 plotly==5.10.0
+pyyaml==5.4.1
+kaleido==0.2.1
