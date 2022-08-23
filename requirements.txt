@@ -18,3 +18,4 @@ six==1.15.0               # via cycler, python-dateutil
 motivus==2.0.0
 ipywidgets==7.7.2
 tabloo==0.0.15
+plotly==5.10.0
