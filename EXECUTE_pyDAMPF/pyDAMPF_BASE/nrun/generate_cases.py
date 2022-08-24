@@ -83,6 +83,11 @@ paraleliz=int(tcases/factor)
 
 #------------------Case inputs gen--------------------------
 for i in range(0,paraleliz):
+    # placeholders for progress checking
+    idname='case'+str(i+1)+'.in'
+    np.savetxt(idname, [0])
+
+for i in range(0,paraleliz):
     txu=np.array([rbase[i],qbase[i],ebase[i],a0base[i],kbase[i],f0base[i],iden[i],epsilon2base[i],etabase[i],hambase[i],nperbase[i],nppbase[i],nperfinbase[i],zcminbase[i],dzcbase[i],fixzcbase[i],epsilon1base[i],epsbase[i],eps0base[i],sigmatbase[i],sigmasbase[i],debyebase[i],ljminbase[i],lenghtbase[i]])
     txu=txu.T
     idname='case'+str(i+1)+'.in'
