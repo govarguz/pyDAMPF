@@ -102,7 +102,9 @@ for i in range(0,paraleliz):
     os.rename(idname,baname)
     #os.remove(idname)
     # text has been saved now is time to run the code
+    print('will run pydampf')
     exec(open("pyDAMPF.py").read())
+    print('did run pydampf')
     #exec(compile(open("dforcenv1.py").read(), "dforcenv1.py", 'exec'))
     #%run dforcenv1.py
     os.chdir(piat1)
