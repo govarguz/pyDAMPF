@@ -11,7 +11,7 @@ pytz==2020.1              # via pandas
 scipy==1.4.1              # via seaborn
 seaborn==0.10.1
 six==1.15.0               # via cycler, python-dateutil
-motivus==2.1.0
+motivus==2.1.1
 ipywidgets==7.7.2
 tabloo==0.0.15
 plotly==5.10.0
