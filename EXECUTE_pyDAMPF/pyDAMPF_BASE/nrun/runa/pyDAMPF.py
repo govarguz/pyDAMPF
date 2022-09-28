@@ -189,6 +189,7 @@ tcd = zcdom[:,10]# new
 #======================PLOT========================
 #========Building the big Switch===========
 #||||||||||||||||||||||||||||||||||||||||||
+'''
 #def amp1():
 #========Amp 1 vs. zc=================
 plt.figure(1)
@@ -211,6 +212,7 @@ plt.plot(zc,fase1d,'b.--')
 plt.xlim(0.5,10)
 plt.savefig('phi1Vzc'+str(sid)+'.png')
 plt.close()
+'''
 #def den1():
     #========Diss Energy 1st vs. zc=================
 plt.figure(3)
@@ -491,6 +493,7 @@ plt.plot(tt,forcet,'r.--')
 plt.xlim(nper-3, nper)
 plt.savefig('totalforceTimezoom'+str(sid)+'.png')
 plt.close()
+'''
 #def p1a1():
     #========Phase 1 vs. Amp 21=================
 plt.figure(29)
@@ -501,7 +504,7 @@ plt.xlabel('$A_1\; [nm]$',weight='bold',size='x-large')
 plt.plot(amp1d,fase1d,'bo')
 plt.savefig('phi1Vamp1'+str(sid)+'.png')
 plt.close()
-
+'''
 '''
 #def zt1():
     #========Instantaneous position 1 vs. time=================
