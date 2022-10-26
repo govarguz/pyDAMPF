@@ -4,7 +4,7 @@
 #
 #    pip-compile
 #
-motivus==2.1.1
+motivus==2.4.0
 tabloo==0.0.15
 plotly==5.10.0
 kaleido==0.2.1
