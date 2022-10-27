@@ -43,17 +43,9 @@ inicio = time.time()
 #========================Llajtamasis========================
 # IMPORT MODULES
 import os
-#import shutil
-#import gtk
-#import gtk.glade
-#import pygtk # temp
-# IMPORT NEWLY VISUALIZATION MODULES
-#from scipy import *
-#import mypypm1
-#import mypyeb1
-#from pylab import *
 import numpy as np
 import matplotlib.pyplot as plt
+
 # Define the path to the OS, for running python
 #ROOT = os.path.realpath(os.path.dirname(__file__))
 # first we run the simulation
@@ -213,6 +205,7 @@ plt.xlim(0.5,10)
 plt.savefig('phi1Vzc'+str(sid)+'.png')
 plt.close()
 '''
+'''
 #def den1():
     #========Diss Energy 1st vs. zc=================
 plt.figure(3)
@@ -291,6 +284,7 @@ plt.xlim(0.5,10)
 plt.savefig('ctimeVzc'+str(sid)+'.png')
 plt.close()
 '''
+'''
 def amp2():
         #========Amp 2 vs. zc=================
     plt.figure(10)
@@ -340,6 +334,7 @@ def vir2():
     #----------------------------------------------------------------
     #===================Time Domain==================================
     #----------------------------------------------------------------
+'''
 #def ztt():
     #========Instantaneous position vs. time=================
 plt.figure(15)
@@ -493,7 +488,7 @@ plt.plot(tt,forcet,'r.--')
 plt.xlim(nper-3, nper)
 plt.savefig('totalforceTimezoom'+str(sid)+'.png')
 plt.close()
-'''
+
 #def p1a1():
     #========Phase 1 vs. Amp 21=================
 plt.figure(29)
@@ -504,8 +499,8 @@ plt.xlabel('$A_1\; [nm]$',weight='bold',size='x-large')
 plt.plot(amp1d,fase1d,'bo')
 plt.savefig('phi1Vamp1'+str(sid)+'.png')
 plt.close()
-'''
-'''
+
+
 #def zt1():
     #========Instantaneous position 1 vs. time=================
 plt.figure(30)
@@ -596,6 +591,6 @@ fin = time.time()
 #print('EXECUTION TIME CASE '+str(sid)+': ', (fin-inicio)/60 , '[min]') 
 time = (fin-inicio)/60
 file = open('time'+str(sid)+'.txt','w')
-file.write('time=%s'%time)
+file.write('time (seg)=    %s'%time)
 file.close()
 #print('FINISH CASE'+str(sid))    
