@@ -593,9 +593,9 @@ for ii in range(len(opt1)):
 
 #####for end timer#####
 fin = time.time()
-print('EXECUTION TIME CASE '+str(sid)+': ', (fin-inicio)/60 , '[min]') 
+#print('EXECUTION TIME CASE '+str(sid)+': ', (fin-inicio)/60 , '[min]') 
 time = (fin-inicio)/60
 file = open('time'+str(sid)+'.txt','w')
 file.write('time=%s'%time)
 file.close()
-print('FINISH CASE'+str(sid))    
+#print('FINISH CASE'+str(sid))    
